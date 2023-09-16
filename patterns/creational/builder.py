@@ -1,34 +1,31 @@
 """
-*What is this pattern about?
-It decouples the creation of a complex object and its representation,
-so that the same process can be reused to build objects from the same
-family.
-This is useful when you must separate the specification of an object
-from its actual representation (generally for abstraction).
+*О чем этот шаблон?
+Он разделяет создание сложного объекта и его представление,
+так что один и тот же процесс может быть повторно использован для построения
+объектов из одной и той же семьи. Это полезно, когда необходимо отделить
+описание объекта от его фактического представления (как правило, для абстракции).
 
-*What does this example do?
+*Что делает этот пример?
+Первый пример достигает этого, используя абстрактный базовый класс для здания,
+где конструктор (init метод) указывает необходимые шаги,
+а конкретные подклассы реализуют эти шаги.
 
-The first example achieves this by using an abstract base
-class for a building, where the initializer (__init__ method) specifies the
-steps needed, and the concrete subclasses implement these steps.
+В других языках программирования иногда необходимо использовать более сложную организацию.
+В частности, в C++ нельзя иметь полиморфное поведение в конструкторе - см.
+ https://stackoverflow.com/questions/1453131/how-can-i-get-polymorphic-behavior-in-a-c-constructor,
+что означает, что эта техника на Python не сработает.
+Требуемое полиморфное поведение должно быть предоставлено внешним,
+уже созданным экземпляром другого класса.
 
-In other programming languages, a more complex arrangement is sometimes
-necessary. In particular, you cannot have polymorphic behaviour in a constructor in C++ -
-see https://stackoverflow.com/questions/1453131/how-can-i-get-polymorphic-behavior-in-a-c-constructor
-- which means this Python technique will not work. The polymorphism
-required has to be provided by an external, already constructed
-instance of a different class.
+В целом, в Python это, как правило, не требуется, но также представлен второй пример,
+ показывающий такого рода организацию.
 
-In general, in Python this won't be necessary, but a second example showing
-this kind of arrangement is also included.
-
-*Where is the pattern used practically?
-
-*References:
+*Где практически используется этот шаблон?
+*Ссылки:
 https://sourcemaking.com/design_patterns/builder
 
-*TL;DR
-Decouples the creation of a complex object and its representation.
+*Кратко
+Разделяет создание сложного объекта и его представление.
 """
 
 

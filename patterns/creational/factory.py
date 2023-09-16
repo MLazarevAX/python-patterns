@@ -1,25 +1,24 @@
-"""*What is this pattern about?
-A Factory is an object for creating other objects.
+"""*О чем этот шаблон?
+Фабрика - это объект для создания других объектов.
 
-*What does this example do?
-The code shows a way to localize words in two languages: English and
-Greek. "get_localizer" is the factory function that constructs a
-localizer depending on the language chosen. The localizer object will
-be an instance from a different class according to the language
-localized. However, the main code does not have to worry about which
-localizer will be instantiated, since the method "localize" will be called
-in the same way independently of the language.
+*Что делает этот пример?
+Код показывает способ локализации слов на двух языках:
+ английском и греческом. "get_localizer" - это фабричная функция,
+которая создает локализатор в зависимости от выбранного языка.
+Объект локализатора будет экземпляром другого класса в соответствии с выбранным языком.
+Однако основной код не должен беспокоиться о том, какой локализатор будет создан,
+поскольку метод "localize" будет вызван таким же образом независимо от выбранного языка.
 
-*Where can the pattern be used practically?
-The Factory Method can be seen in the popular web framework Django:
-https://docs.djangoproject.com/en/4.0/topics/forms/formsets/
-For example, different types of forms are created using a formset_factory
+*Где практически можно использовать этот шаблон?
+Шаблон Фабричного метода можно увидеть в популярном веб-фреймворке Django:
+ https://docs.djangoproject.com/en/4.0/topics/forms/formsets/.
+Например, различные типы форм создаются с использованием formset_factory.
 
-*References:
+*Ссылки:
 http://ginstrom.com/scribbles/2007/10/08/design-patterns-python-style/
 
-*TL;DR
-Creates objects without having to specify the exact class.
+*Кратко
+Создает объекты, не указывая точный класс.
 """
 from typing import Dict
 from typing import Protocol
@@ -50,7 +49,6 @@ class EnglishLocalizer:
 
 
 def get_localizer(language: str = "English") -> Localizer:
-
     """Factory"""
     localizers: Dict[str, Type[Localizer]] = {
         "English": EnglishLocalizer,

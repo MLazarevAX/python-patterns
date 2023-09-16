@@ -1,5 +1,5 @@
 """
-Lazily-evaluated property pattern in Python.
+Шаблон "ленивого вычисления свойства" в Python.
 
 https://en.wikipedia.org/wiki/Lazy_evaluation
 
@@ -16,7 +16,7 @@ werkzeug
 https://github.com/pallets/werkzeug/blob/5a2bf35441006d832ab1ed5a31963cbc366c99ac/werkzeug/utils.py#L35
 
 *TL;DR
-Delays the eval of an expr until its value is needed and avoids repeated evals.
+Откладывает вычисление выражения до тех пор, пока его значение не потребуется, и предотвращает повторные вычисления.
 """
 
 import functools

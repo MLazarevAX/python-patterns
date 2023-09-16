@@ -1,29 +1,30 @@
 """
-*What is this pattern about?
-The composite pattern describes a group of objects that is treated the
-same way as a single instance of the same type of object. The intent of
-a composite is to "compose" objects into tree structures to represent
-part-whole hierarchies. Implementing the composite pattern lets clients
-treat individual objects and compositions uniformly.
+*What is this pattern about?*
+Паттерн Composite описывает группу объектов, которая обрабатывается так же,
+как один экземпляр того же типа объекта. Намерение использования
+паттерна Composite заключается в "компоновке" объектов в структуры дерева
+для представления иерархий "часть-целое". Реализация паттерна Composite
+позволяет клиентам обрабатывать как отдельные объекты, так и композиции одинаково.
 
-*What does this example do?
-The example implements a graphic class，which can be either an ellipse
-or a composition of several graphics. Every graphic can be printed.
+*What does this example do?*
+Пример реализует класс Graphic, который может быть либо эллипсом,
+либо композицией нескольких графических объектов.
+Каждый графический объект может быть напечатан.
 
-*Where is the pattern used practically?
-In graphics editors a shape can be basic or complex. An example of a
-simple shape is a line, where a complex shape is a rectangle which is
-made of four line objects. Since shapes have many operations in common
-such as rendering the shape to screen, and since shapes follow a
-part-whole hierarchy, composite pattern can be used to enable the
-program to deal with all shapes uniformly.
+*Where is the pattern used practically?*
+В графических редакторах фигура может быть простой или сложной.
+Примером простой формы является линия, а сложной - прямоугольник,
+состоящий из четырех линий. Поскольку у форм есть много общих операций,
+таких как отображение формы на экране, и поскольку формы следуют
+иерархии "часть-целое", паттерн Composite может быть использован
+для обеспечения единообразной обработки всех форм в программе.
 
-*References:
+*References:*
 https://en.wikipedia.org/wiki/Composite_pattern
 https://infinitescript.com/2014/10/the-23-gang-of-three-design-patterns/
 
-*TL;DR
-Describes a group of objects that is treated as a single instance.
+*TL;DR*
+Описывает группу объектов, которая обрабатывается как один экземпляр.
 """
 
 from abc import ABC, abstractmethod

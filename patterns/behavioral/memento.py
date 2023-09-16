@@ -2,7 +2,7 @@
 http://code.activestate.com/recipes/413838-memento-closure/
 
 *TL;DR
-Provides the ability to restore an object to its previous state.
+Предоставляет возможность восстановить объект в предыдущее состояние
 """
 
 from typing import Callable, List

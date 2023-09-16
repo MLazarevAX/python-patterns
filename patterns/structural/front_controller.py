@@ -2,7 +2,7 @@
 @author: Gordeev Andrey <gordeev.and.and@gmail.com>
 
 *TL;DR
-Provides a centralized entry point that controls and manages request handling.
+Обеспечивает централизованную точку входа, которая контролирует и управляет обработкой запросов.
 """
 
 from __future__ import annotations

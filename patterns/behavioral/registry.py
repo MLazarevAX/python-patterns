@@ -2,7 +2,6 @@ from typing import Dict
 
 
 class RegistryHolder(type):
-
     REGISTRY: Dict[str, "RegistryHolder"] = {}
 
     def __new__(cls, name, bases, attrs):
@@ -21,9 +20,9 @@ class RegistryHolder(type):
 
 class BaseRegisteredClass(metaclass=RegistryHolder):
     """
-    Any class that will inherits from BaseRegisteredClass will be included
-    inside the dict RegistryHolder.REGISTRY, the key being the name of the
-    class and the associated value, the class itself.
+    Любой класс, который будет наследоваться от BaseRegisteredClass,
+    будет включен в dict RegistryHolder.REGISTRY, где ключом является
+    имя класса и связанное с ним значение, то есть сам класс.
     """
 
 

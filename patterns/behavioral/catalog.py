@@ -1,6 +1,7 @@
 """
-A class that uses different static function depending of a parameter passed in
-init. Note the use of a single dictionary instead of multiple conditions
+Этот класс использует разные статические функции в зависимости от параметра,
+ переданного в метод __init__. Обратите внимание на использование
+ единственного словаря вместо множества условий.
 """
 
 __author__ = "Ibrahim Diop <ibrahim@sikilabs.com>"
@@ -13,7 +14,6 @@ class Catalog:
     """
 
     def __init__(self, param: str) -> None:
-
         # dictionary that will be used to determine which static method is
         # to be executed but that will be also used to store possible param
         # value

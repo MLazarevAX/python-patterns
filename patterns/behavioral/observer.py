@@ -2,7 +2,7 @@
 http://code.activestate.com/recipes/131499-observer-pattern/
 
 *TL;DR
-Maintains a list of dependents and notifies them of any state changes.
+Ведет список зависимых объектов и уведомляет их о любых изменениях состояния.
 
 *Examples in Python ecosystem:
 Django Signals: https://docs.djangoproject.com/en/3.1/topics/signals/

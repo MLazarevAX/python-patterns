@@ -1,18 +1,15 @@
 """
 http://peter-hoffmann.com/2010/extrinsic-visitor-pattern-python-inheritance.html
+*TL;ДР Отделяет алгоритм от структуры объекта, с которым он работает.
 
-*TL;DR
-Separates an algorithm from an object structure on which it operates.
+Интересный рецепт можно найти в Брайан Джонс, Дэвид Бизли
+«Кулинарная книга Python» (2013): - «8.21. Реализация шаблона посетителя» -
+«8.22. Реализация шаблона посетителя без рекурсии»
 
-An interesting recipe could be found in
-Brian Jones, David Beazley "Python Cookbook" (2013):
-- "8.21. Implementing the Visitor Pattern"
-- "8.22. Implementing the Visitor Pattern Without Recursion"
-
-*Examples in Python ecosystem:
-- Python's ast.NodeVisitor: https://github.com/python/cpython/blob/master/Lib/ast.py#L250
-which is then being used e.g. in tools like `pyflakes`.
-- `Black` formatter tool implements it's own: https://github.com/ambv/black/blob/master/black.py#L718
+*Примеры в экосистеме Python: - Python
+ast.NodeVisitor: https://github.com/python/cpython/blob/master/Lib/ast.py#L250
+который затем используется, например, в таких инструментах, как `pyflakes`.
+ - Инструмент форматирования `Black` реализует свой собственный: https://github.com/ambv/black/blob/master/black.py#L71
 """
 
 

@@ -1,31 +1,27 @@
 """
-Example from https://en.wikipedia.org/wiki/Facade_pattern#Python
+*What is this pattern about?*
+Паттерн Фасад представляет собой способ предоставления более простого унифицированного
+интерфейса к более сложной системе. Он обеспечивает более простой способ
+доступа к функциям базовой системы, предоставляя единую точку входа.
+Такой вид абстракции встречается во многих реальных ситуациях.
+Например, мы можем включить компьютер, просто нажав кнопку, но, фактически,
+при этом выполняется множество процедур и операций
+(например, загрузка программ с диска в память). В этом случае кнопка служит
+унифицированным интерфейсом ко всем базовым процедурам включения компьютера.
 
+*Where is the pattern used practically?*
+Этот паттерн можно увидеть в стандартной библиотеке Python, когда мы
+используем функцию isdir. Несмотря на то, что пользователь просто использует эту функцию,
+чтобы узнать, является ли путь каталогом, система выполняет несколько операций
+и вызывает другие модули (например, os.stat), чтобы дать результат.
 
-*What is this pattern about?
-The Facade pattern is a way to provide a simpler unified interface to
-a more complex system. It provides an easier way to access functions
-of the underlying system by providing a single entry point.
-This kind of abstraction is seen in many real life situations. For
-example, we can turn on a computer by just pressing a button, but in
-fact there are many procedures and operations done when that happens
-(e.g., loading programs from disk to memory). In this case, the button
-serves as an unified interface to all the underlying procedures to
-turn on a computer.
-
-*Where is the pattern used practically?
-This pattern can be seen in the Python standard library when we use
-the isdir function. Although a user simply uses this function to know
-whether a path refers to a directory, the system makes a few
-operations and calls other modules (e.g., os.stat) to give the result.
-
-*References:
+*References:*
 https://sourcemaking.com/design_patterns/facade
 https://fkromer.github.io/python-pattern-references/design/#facade
 http://python-3-patterns-idioms-test.readthedocs.io/en/latest/ChangeInterface.html#facade
 
-*TL;DR
-Provides a simpler unified interface to a complex system.
+*TL;DR*
+Предоставляет более простой унифицированный интерфейс к сложной системе.
 """
 
 

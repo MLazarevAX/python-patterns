@@ -1,33 +1,36 @@
 """
-*What is this pattern about?
+Этот шаблон называется Шаблоном Абстрактной Фабрики.
 
-In Java and other languages, the Abstract Factory Pattern serves to provide an interface for
-creating related/dependent objects without need to specify their
-actual class.
+Что представляет собой этот шаблон?
+Шаблон Абстрактной Фабрики является шаблоном проектирования, относящимся к категории создания объектов.
+Он предоставляет интерфейс для создания семейств связанных или зависимых объектов, не указывая их конкретных классов.
+Это позволяет создавать объекты на основе определенных условий, таких как бизнес-логика,
+выбор платформы или другие критерии, не раскрывая конкретных деталей реализации.
 
-The idea is to abstract the creation of objects depending on business
-logic, platform choice, etc.
+Что делает этот пример?
+Представленный вами пример абстрагирует создание домашних животных (конкретно, собак и кошек) с использованием
+абстрактной фабрики. В зависимости от выбранной фабрики (DogFactory, CatFactory или random_animal),
+он создает экземпляры домашних животных, которые следуют общему интерфейсу. Эти домашние животные могут
+быть использованы в приложении, не зная их конкретных типов. Это позволяет приложению создавать домашних
+ животных в абстрактной форме и принимать решения на основе определенных критериев о том,
+  какой тип домашнего животного создать (например, собаки вместо кошек).
 
-In Python, the interface we use is simply a callable, which is "builtin" interface
-in Python, and in normal circumstances we can simply use the class itself as
-that callable, because classes are first class objects in Python.
+Где практически используется этот шаблон?
+Шаблон Абстрактной Фабрики используется в программной разработке для достижения гибкости
+и поддерживаемости. Его часто применяют в ситуациях, где требуется создание семейств связанных объектов,
+таких как компоненты пользовательского интерфейса в кросс-платформенном приложении, адаптеры баз данных
+для разных систем управления базами данных или в любом сценарии, где необходимо разрывать связь между
+кодом клиента и конкретными реализациями объектов.
 
-*What does this example do?
-This particular implementation abstracts the creation of a pet and
-does so depending on the factory we chose (Dog or Cat, or random_animal)
-This works because both Dog/Cat and random_animal respect a common
-interface (callable for creation and .speak()).
-Now my application can create pets abstractly and decide later,
-based on my own criteria, dogs over cats.
+Ссылки:
 
-*Where is the pattern used practically?
+    SourceMaking - Шаблон Абстрактной Фабрики
+    Шаблоны проектирования в стиле Python
 
-*References:
-https://sourcemaking.com/design_patterns/abstract_factory
-http://ginstrom.com/scribbles/2007/10/08/design-patterns-python-style/
-
-*TL;DR
-Provides a way to encapsulate a group of individual factories.
+Кратко:
+Шаблон Абстрактной Фабрики предоставляет способ инкапсулировать группу отдельных фабрик,
+ позволяя создавать семейства связанных объектов, не указывая их конкретные классы,
+  и способствуя гибкости и поддерживаемости в вашем коде.
 """
 
 import random
@@ -63,53 +66,54 @@ class Cat(Pet):
 
 class PetShop:
 
-    """A pet shop"""
+    """Зоомагазин"""
 
     def __init__(self, animal_factory: Type[Pet]) -> None:
-        """pet_factory is our abstract factory.  We can set it at will."""
+        """pet_factory - это наш абстрактный завод. Мы можем устанавливать его по своему усмотрению."""
 
         self.pet_factory = animal_factory
 
     def buy_pet(self, name: str) -> Pet:
-        """Creates and shows a pet using the abstract factory"""
+        """Создает и предоставляет питомца с использованием абстрактной фабрики"""
 
         pet = self.pet_factory(name)
-        print(f"Here is your lovely {pet}")
+        print(f"Вот ваш милый {pet}")
         return pet
 
 
-# Additional factories:
+# Дополнительные фабрики:
 
-# Create a random animal
+
+# Создание случайного животного
 def random_animal(name: str) -> Pet:
-    """Let's be dynamic!"""
+    """Давайте будем динамичными!"""
     return random.choice([Dog, Cat])(name)
 
 
-# Show pets with various factories
+# Показать питомцев с разными фабриками
 def main() -> None:
     """
-    # A Shop that sells only cats
+    # Магазин, который продает только кошек
     >>> cat_shop = PetShop(Cat)
     >>> pet = cat_shop.buy_pet("Lucy")
-    Here is your lovely Cat<Lucy>
-    >>> pet.speak()
-    meow
+    Вот ваш милый Cat<Люси>
+    >> pet.speak()
+    мяу
 
-    # A shop that sells random animals
+    # Магазин, который продает случайных животных
     >>> shop = PetShop(random_animal)
     >>> for name in ["Max", "Jack", "Buddy"]:
     ...    pet = shop.buy_pet(name)
     ...    pet.speak()
     ...    print("=" * 20)
-    Here is your lovely Cat<Max>
-    meow
+    Вот ваш милый Cat<Макс>
+    мяу
     ====================
-    Here is your lovely Dog<Jack>
-    woof
+    Вот ваш милый Dog<Джек>
+    гав
     ====================
-    Here is your lovely Dog<Buddy>
-    woof
+    Вот ваш милый Dog<Бадди>
+    гав
     ====================
     """
 

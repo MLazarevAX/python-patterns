@@ -1,25 +1,23 @@
 """
-*What is this pattern about?
-This patterns aims to reduce the number of classes required by an
-application. Instead of relying on subclasses it creates objects by
-copying a prototypical instance at run-time.
+*О чем этот шаблон?
+Этот шаблон направлен на уменьшение числа классов, необходимых для приложения.
+Вместо того чтобы полагаться на подклассы, он создает объекты путем
+копирования прототипного экземпляра во время выполнения.
 
-This is useful as it makes it easier to derive new kinds of objects,
-when instances of the class have only a few different combinations of
-state, and when instantiation is expensive.
+Это полезно, так как это упрощает создание новых видов объектов, когда
+экземпляры класса имеют всего несколько различных комбинаций состояния,
+и когда создание экземпляров затратно.
 
-*What does this example do?
-When the number of prototypes in an application can vary, it can be
-useful to keep a Dispatcher (aka, Registry or Manager). This allows
-clients to query the Dispatcher for a prototype before cloning a new
-instance.
+*Что делает этот пример?
+Когда количество прототипов в приложении может меняться, полезно иметь Диспетчера
+(также известного как Реестр или Менеджер). Это позволяет клиентам запрашивать
+у Диспетчера прототип перед клонированием нового экземпляра.
 
-Below provides an example of such Dispatcher, which contains three
-copies of the prototype: 'default', 'objecta' and 'objectb'.
+Ниже предоставлен пример такого Диспетчера, который содержит
+три копии прототипа: 'default', 'objecta' и 'objectb'.
 
-*TL;DR
-Creates new object instances by cloning prototype.
-"""
+*Кратко
+Создает новые экземпляры объектов путем клонирования прототипа."""
 from __future__ import annotations
 
 from typing import Any
@@ -31,9 +29,9 @@ class Prototype:
         self.__dict__.update(attrs)
 
     def clone(self, **attrs: Any) -> Prototype:
-        """Clone a prototype and update inner attributes dictionary"""
+        """Клонировать прототип и обновить словарь внутренних атрибутов."""
         # Python in Practice, Mark Summerfield
-        # copy.deepcopy can be used instead of next line.
+        # copy.deepcopy Может использоваться вместо следующей строки.
         obj = self.__class__(**self.__dict__)
         obj.__dict__.update(attrs)
         return obj

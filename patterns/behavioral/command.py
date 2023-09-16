@@ -1,22 +1,22 @@
 """
-Command pattern decouples the object invoking a job from the one who knows
-how to do it. As mentioned in the GoF book, a good example is in menu items.
-You have a menu that has lots of items. Each item is responsible for doing a
-special thing and you want your menu item just call the execute method when
-it is pressed. To achieve this you implement a command object with the execute
-method for each menu item and pass to it.
+Паттерн "Команда" (Command) разрывает связь между объектом, вызывающим операцию,
+и объектом, знающим, как ее выполнить. Хорошим примером являются пункты меню.
+У вас есть меню, в котором много элементов.
+Каждый элемент отвечает за выполнение какой-то специфической операции, и вы хотите,
+чтобы ваш элемент меню просто вызывал метод `execute`, когда его нажимают.
+Для этого вы создаете объект команды с методом `execute` для каждого
+элемента меню и передаете его.
 
-*About the example
-We have a menu containing two items. Each item accepts a file name, one hides the file
-and the other deletes it. Both items have an undo option.
-Each item is a MenuItem class that accepts the corresponding command as input and executes
-it's execute method when it is pressed.
+В данном примере у нас есть меню, содержащее два элемента. Каждый элемент
+принимает имя файла: один скрывает файл, а другой удаляет его. Оба элемента
+имеют опцию отмены действия. Каждый элемент представлен классом `MenuItem`,
+который принимает соответствующую команду и выполняет ее метод `execute`,
+когда элемент меню нажимается.
 
-*TL;DR
-Object oriented implementation of callback functions.
+Вкратце, паттерн "Команда" представляет объектно-ориентированный способ
+реализации функций обратного вызова.
 
-*Examples in Python ecosystem:
-Django HttpRequest (without execute method):
+Пример в экосистеме Python: HttpRequest в Django (без метода `execute`):
 https://docs.djangoproject.com/en/2.1/ref/request-response/#httprequest-objects
 """
 

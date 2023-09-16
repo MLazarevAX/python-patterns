@@ -1,18 +1,19 @@
 """
 *What is this pattern about?
-Proxy is used in places where you want to add functionality to a class without
-changing its interface. The main class is called `Real Subject`. A client should
-use the proxy or the real subject without any code change, so both must have the
-same interface. Logging and controlling access to the real subject are some of
-the proxy pattern usages.
+Прокси используется в случаях, когда вы хотите добавить функциональность
+к классу без изменения его интерфейса. Основной класс называется
+"Реальным объектом". Клиент должен использовать прокси или
+реальный объект без изменения кода, поэтому оба должны иметь одинаковый интерфейс.
+Примерами использования паттерна "прокси" являются логирование
+и управление доступом к реальному объекту.
 
 *References:
 https://refactoring.guru/design-patterns/proxy/python/example
 https://python-3-patterns-idioms-test.readthedocs.io/en/latest/Fronting.html
 
 *TL;DR
-Add functionality or logic (e.g. logging, caching, authorization) to a resource
-without changing its interface.
+Добавляет функциональность или логику (например, логирование, кэширование, авторизацию)
+ к ресурсу без изменения его интерфейса.
 """
 
 from typing import Union

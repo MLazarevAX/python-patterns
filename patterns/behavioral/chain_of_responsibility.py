@@ -1,21 +1,19 @@
 """
-*What is this pattern about?
+Паттерн "Цепочка обязанностей" (Chain of Responsibility) - это
+объектно-ориентированная версия идиомы `if ... elif ... elif ... else ...`,
+с тем преимуществом, что блоки условие-действие могут быть
+динамически пересматриваемы и переконфигурируемы во время выполнения.
 
-The Chain of responsibility is an object oriented version of the
-`if ... elif ... elif ... else ...` idiom, with the
-benefit that the condition–action blocks can be dynamically rearranged
-and reconfigured at runtime.
+Этот паттерн стремится разрывать связи между отправителями запроса и
+их получателями, позволяя запросу проходить через цепочку получателей
+до тех пор, пока он не будет обработан.
 
-This pattern aims to decouple the senders of a request from its
-receivers by allowing request to move through chained
-receivers until it is handled.
+Получатель запроса в простой форме хранит ссылку на одного последователя.
+Вариацией является то, что некоторые получатели могут отправлять запросы
+в нескольких направлениях, образуя "дерево обязанностей".
 
-Request receiver in simple form keeps a reference to a single successor.
-As a variation some receivers may be capable of sending requests out
-in several directions, forming a `tree of responsibility`.
-
-*TL;DR
-Allow a request to pass down a chain of receivers until it is handled.
+Вкратце, паттерн "Цепочка обязанностей" позволяет запросу
+проходить через цепочку получателей, пока он не будет обработан.
 """
 
 from abc import ABC, abstractmethod

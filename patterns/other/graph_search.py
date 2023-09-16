@@ -50,18 +50,17 @@ class GraphSearch:
 
     def find_shortest_path_bfs(self, start, end):
         """
-        Finds the shortest path between two nodes in a graph using breadth-first search.
+        Находит кратчайший путь между двумя узлами в графе, используя поиск в ширину (breadth-first search).
 
-        :param start: The node to start from.
-        :type start: str or int
-        :param end: The node to find the shortest path to.
-            :type end: str or int
+        - `start`: Узел, с которого начинается поиск.
+        - `end`: Узел, до которого нужно найти кратчайший путь.
 
-            :returns queue_path_to_end, dist_to[end]: A list of nodes
-        representing the shortest path from `start` to `end`, and a dictionary
-        mapping each node in the graph (except for `start`) with its distance from it
-        (in terms of hops). If no such path exists, returns an empty list and an empty
-        dictionary instead.
+        Функция возвращает два значения:
+        - `queue_path_to_end`: Список узлов, представляющих кратчайший путь от `start` до `end`.
+        - `dist_to[end]`: Словарь, сопоставляющий каждый узел в графе (кроме `start`)
+        с его расстоянием от него (в терминах количества переходов).
+
+        Если пути между `start` и `end` не существует, функция вернет пустой список и пустой словарь.
         """
         queue = [start]
         dist_to = {start: 0}

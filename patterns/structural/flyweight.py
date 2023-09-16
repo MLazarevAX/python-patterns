@@ -1,28 +1,28 @@
 """
-*What is this pattern about?
-This pattern aims to minimise the number of objects that are needed by
-a program at run-time. A Flyweight is an object shared by multiple
-contexts, and is indistinguishable from an object that is not shared.
+*What is this pattern about?*
+Этот паттерн направлен на минимизацию количества объектов, которые необходимы
+ программе во время выполнения. Flyweight (Легковес) - это объект, используемый
+  несколькими контекстами и неотличимый от объекта, который не является общим.
 
-The state of a Flyweight should not be affected by it's context, this
-is known as its intrinsic state. The decoupling of the objects state
-from the object's context, allows the Flyweight to be shared.
+Состояние Flyweight не должно зависеть от его контекста, это называется
+его внутренним состоянием. Разделение состояния объекта от контекста
+объекта позволяет Flyweight быть общим.
 
-*What does this example do?
-The example below sets-up an 'object pool' which stores initialised
-objects. When a 'Card' is created it first checks to see if it already
-exists instead of creating a new one. This aims to reduce the number of
-objects initialised by the program.
+*What does this example do?*
+Приведенный ниже пример настраивает "пул объектов", который хранит
+инициализированные объекты. Когда создается "Card" (Карта), он сначала проверяет,
+существует ли уже такой объект, вместо создания нового. Это направлено
+на уменьшение количества объектов, инициализированных программой.
 
-*References:
+*References:*
 http://codesnipers.com/?q=python-flyweights
 https://python-patterns.guide/gang-of-four/flyweight/
 
-*Examples in Python ecosystem:
+*Examples in Python ecosystem:*
 https://docs.python.org/3/library/sys.html#sys.intern
 
-*TL;DR
-Minimizes memory usage by sharing data with other similar objects.
+*TL;DR*
+Минимизирует использование памяти путем совместного использования данных с другими похожими объектами.
 """
 
 import weakref

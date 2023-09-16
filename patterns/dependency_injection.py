@@ -1,15 +1,14 @@
 """
-Dependency Injection (DI) is a technique whereby one object supplies the dependencies (services)
-to another object (client).
-It allows to decouple objects: no need to change client code simply because an object it depends on
-needs to be changed to a different one. (Open/Closed principle)
+Dependency Injection (DI) - это техника, при которой один объект предоставляет
+ зависимости (сервисы) другому объекту (клиенту). Это позволяет развязать
+ объекты: нет необходимости изменять код клиента только из-за того,
+ что объект, от которого он зависит, должен быть заменен другим (принцип "Открыто/Закрыто").
 
-Port of the Java example of Dependency Injection" in
-"xUnit Test Patterns - Refactoring Test Code" by Gerard Meszaros
-(ISBN-10: 0131495054, ISBN-13: 978-0131495050)
-
-In the following example `time_provider` (service) is embedded into TimeDisplay (client).
-If such service performed an expensive operation you would like to substitute or mock it in tests.
+Пример из Java "Внедрения зависимостей" из книги
+"xUnit Test Patterns - Refactoring Test Code" Герарда Месзароша.
+В этом примере `time_provider` (сервис) внедряется в класс TimeDisplay (клиент).
+Если такой сервис выполняет дорогостоящую операцию,
+вы можете заменить или мокировать его в тестах.
 
 class TimeDisplay(object):
 

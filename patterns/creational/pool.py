@@ -1,32 +1,29 @@
 """
-*What is this pattern about?
-This pattern is used when creating an object is costly (and they are
-created frequently) but only a few are used at a time. With a Pool we
-can manage those instances we have as of now by caching them. Now it
-is possible to skip the costly creation of an object if one is
-available in the pool.
-A pool allows to 'check out' an inactive object and then to return it.
-If none are available the pool creates one to provide without wait.
+*О чем этот шаблон?
+Этот шаблон используется, когда создание объекта затратно (и они создаются часто),
+ но только несколько из них используются одновременно. С помощью пула мы можем управлять
+ имеющимися экземплярами, кэшируя их. Теперь возможно пропустить затратное создание объекта,
+ если в пуле есть доступный.
+Пул позволяет "взять" неактивный объект и затем вернуть его.
+Если нет доступных объектов, то пул создает новый, чтобы предоставить его без ожидания.
 
-*What does this example do?
-In this example queue.Queue is used to create the pool (wrapped in a
-custom ObjectPool object to use with the with statement), and it is
-populated with strings.
-As we can see, the first string object put in "yam" is USED by the
-with statement. But because it is released back into the pool
-afterwards it is reused by the explicit call to sample_queue.get().
-Same thing happens with "sam", when the ObjectPool created inside the
-function is deleted (by the GC) and the object is returned.
+*Что делает этот пример?
+В этом примере используется queue.Queue для создания пула (обернутого в пользовательский
+ объект ObjectPool для использования с оператором with) и заполняется строками.
+Как мы видим, первый объект строки, помещенный в "yam", ИСПОЛЬЗУЕТСЯ с помощью оператора with.
+Но поскольку он возвращается обратно в пул после этого, его можно повторно
+использовать при явном вызове sample_queue.get().
+То же самое происходит с "sam", когда ObjectPool, созданный внутри функции,
+удаляется (сборщиком мусора), и объект возвращается.
 
-*Where is the pattern used practically?
+*Где это практически используется?
 
-*References:
+*Ссылки:
 http://stackoverflow.com/questions/1514120/python-implementation-of-the-object-pool-design-pattern
 https://sourcemaking.com/design_patterns/object_pool
 
-*TL;DR
-Stores a set of initialized objects kept ready to use.
-"""
+*Кратко
+Сохраняет набор инициализированных объектов, готовых к использованию."""
 
 
 class ObjectPool:

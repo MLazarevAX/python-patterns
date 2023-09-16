@@ -1,9 +1,8 @@
 """
-*References:
-http://en.wikibooks.org/wiki/Computer_Science_Design_Patterns/Bridge_Pattern#Python
+Ссылка:
+- http://en.wikibooks.org/wiki/Computer_Science_Design_Patterns/Bridge_Pattern#Python
 
-*TL;DR
-Decouples an abstraction from its implementation.
+TL;DR: Разделяет абстракцию от её реализации.
 """
 
 

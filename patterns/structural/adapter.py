@@ -1,31 +1,25 @@
 """
-*What is this pattern about?
-The Adapter pattern provides a different interface for a class. We can
-think about it as a cable adapter that allows you to charge a phone
-somewhere that has outlets in a different shape. Following this idea,
-the Adapter pattern is useful to integrate classes that couldn't be
-integrated due to their incompatible interfaces.
+Паттерн Адаптер (Adapter) предоставляет другой интерфейс для класса. Можно представить
+его как адаптер для кабеля, который позволяет заряжать телефон в розетке с другой формой.
+Следуя этой идее, паттерн Адаптер полезен для интеграции классов, которые не могли быть
+интегрированы из-за несовместимых интерфейсов.
 
-*What does this example do?
+В данном примере присутствуют классы, представляющие сущности
+(Собака, Кот, Человек, Автомобиль), которые издают разные звуки.
+Класс Адаптер предоставляет другой интерфейс для оригинальных методов, создающих такие звуки.
+Таким образом, оригинальные интерфейсы (например, bark и meow)
+становятся доступными под другим именем: make_noise.
 
-The example has classes that represent entities (Dog, Cat, Human, Car)
-that make different noises. The Adapter class provides a different
-interface to the original methods that make such noises. So the
-original interfaces (e.g., bark and meow) are available under a
-different name: make_noise.
+Паттерн Адаптер часто используется в практике для работы с объектами
+через конкретный API без изменения самих объектов. Например, фреймворк
+Grok использует адаптеры для интеграции объектов с определенным API без модификации самих объектов.
 
-*Where is the pattern used practically?
-The Grok framework uses adapters to make objects work with a
-particular API without modifying the objects themselves:
-http://grok.zope.org/doc/current/grok_overview.html#adapters
+Ссылки:
+- http://ginstrom.com/scribbles/2008/11/06/generic-adapter-class-in-python/
+- https://sourcemaking.com/design_patterns/adapter
+- http://python-3-patterns-idioms-test.readthedocs.io/en/latest/ChangeInterface.html#adapter
 
-*References:
-http://ginstrom.com/scribbles/2008/11/06/generic-adapter-class-in-python/
-https://sourcemaking.com/design_patterns/adapter
-http://python-3-patterns-idioms-test.readthedocs.io/en/latest/ChangeInterface.html#adapter
-
-*TL;DR
-Allows the interface of an existing class to be used as another interface.
+TL;DR: Позволяет использовать интерфейс существующего класса как другой интерфейс.
 """
 
 from typing import Callable, TypeVar
